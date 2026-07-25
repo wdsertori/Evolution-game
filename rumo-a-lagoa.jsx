@@ -35,7 +35,7 @@ const ALGAE_GREEN = "#2f8f6a";
 const ALGAE_DARK = "#1c5f47";
 
 const key = (x, y) => `${x},${y}`;
-const BUILD_TAG = "2026-07-25.2";
+const BUILD_TAG = "2026-07-25.3";
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
 // Vertical wall of rocks along column x, with exactly one passable gap row.
