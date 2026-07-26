@@ -35,7 +35,7 @@ const ALGAE_GREEN = "#2f8f6a";
 const ALGAE_DARK = "#1c5f47";
 
 const key = (x, y) => `${x},${y}`;
-const BUILD_TAG = "2026-07-25.5";
+const BUILD_TAG = "2026-07-25.6";
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
 // Vertical wall of rocks along column x, with exactly one passable gap row.
@@ -1246,9 +1246,9 @@ export default function FishGame() {
           }
         `}</style>
         <FishIcon size={56} />
-        <h1 className="text-2xl font-bold mt-3 mb-3 tracking-tight" style={{ color: TEXT_DARK }}>Rumo à Lagoa</h1>
+        <h1 className="text-2xl font-bold mt-3 mb-3 tracking-tight" style={{ color: TEXT_DARK }}>Evo Path</h1>
         <p className="text-sm max-w-xs mb-6" style={{ color: TEXT_DARK }}>
-          Um peixe fora d'água precisa atravessar terrenos hostis até a lagoa, antes que a energia acabe.
+          Uma jornada pelas eras da vida. Atravesse ambientes cada vez mais hostis, sobreviva, e descubra no que você vai se transformar.
         </p>
         <p className="text-xs italic max-w-xs mb-8" style={{ color: TEXT_MUTED }}>"{curiosity}"</p>
         <button onClick={startGame} className="px-6 py-3 text-white text-base rounded-md active:opacity-70" style={{ backgroundColor: WATER }}>
@@ -1328,7 +1328,7 @@ export default function FishGame() {
         }
       `}</style>
 
-      <h1 className="text-xl font-bold mb-1 tracking-tight" style={{ color: TEXT_DARK }}>Rumo à Lagoa</h1>
+      <h1 className="text-xl font-bold mb-1 tracking-tight" style={{ color: TEXT_DARK }}>Evo Path</h1>
       <p className="text-xs mb-3 text-center max-w-xs" style={{ color: TEXT_MUTED }}>
         Fase {levelIndex + 1}/{LEVELS.length} · {level.name} ({theme.name})
       </p>

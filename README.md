@@ -1,6 +1,6 @@
-# Rumo à Lagoa
+# Evo Path
 
-Mini RPG evolutivo para mobile. O jogador controla uma criatura que atravessa
+Mini RPG evolutivo para mobile (antes chamado "Rumo à Lagoa"). O jogador controla uma criatura que atravessa
 biomas hostis e evolui através de eras — peixe, anfíbio, réptil, e (em
 desenvolvimento) ave e mamífero.
 
