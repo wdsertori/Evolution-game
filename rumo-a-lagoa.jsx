@@ -35,7 +35,7 @@ const ALGAE_GREEN = "#2f8f6a";
 const ALGAE_DARK = "#1c5f47";
 
 const key = (x, y) => `${x},${y}`;
-const BUILD_TAG = "2026-07-25.6";
+const BUILD_TAG = "2026-07-25.7";
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
 // Vertical wall of rocks along column x, with exactly one passable gap row.
@@ -435,9 +435,11 @@ const CURIOSITIES = [
 ];
 
 // The camera window never shows more than CAP_W x CAP_H cells at once.
-const CELL = 38;
+const CELL = 44;
 const CAP_W = 8;
 const CAP_H = 6;
+const CELL_ICON_SIZE = 34; // ícones de objetivo/obstáculo/item, preenchendo melhor a célula maior
+const PLAYER_ICON_SIZE = 38; // a criatura fica um pouco maior que os demais ícones, pra dar destaque
 
 // The base creature artwork points LEFT (west). Rotation alone handles every
 // angle except due-east, which mirrors instead of rotating 180° (avoids an
@@ -1278,14 +1280,14 @@ export default function FishGame() {
       const showDecor = !isGoal && !isRock && !itemType && seededRandom(x, y, levelIndex * 97 + 13) < 0.22;
       bgCells.push(
         <div key={k} className="flex items-center justify-center" style={{ width: CELL, height: CELL, backgroundColor: theme.cellBg }}>
-          {isGoal && (level.goalType === "chromosome" ? <ChromosomeIcon /> : level.goalType === "shore" ? <ShoreIcon /> : level.goalType === "toca" ? <TocaIcon /> : level.goalType === "coral" ? <CoralIcon /> : <GoalIcon />)}
-          {isRock && (level.obstacleType === "algae" ? <AlgaeIcon /> : <RockIcon />)}
-          {ItemIcon && !isRock && <ItemIcon />}
+          {isGoal && (level.goalType === "chromosome" ? <ChromosomeIcon size={CELL_ICON_SIZE} /> : level.goalType === "shore" ? <ShoreIcon size={CELL_ICON_SIZE} /> : level.goalType === "toca" ? <TocaIcon size={CELL_ICON_SIZE} /> : level.goalType === "coral" ? <CoralIcon size={CELL_ICON_SIZE} /> : <GoalIcon size={CELL_ICON_SIZE} />)}
+          {isRock && (level.obstacleType === "algae" ? <AlgaeIcon size={CELL_ICON_SIZE} /> : <RockIcon size={CELL_ICON_SIZE} />)}
+          {ItemIcon && !isRock && <ItemIcon size={CELL_ICON_SIZE} />}
           {showDecor && (
             <Decor
               variant={theme.decorVariant}
               color={theme.decorColor}
-              size={12 + seededRandom(x, y, levelIndex * 53 + 7) * 10}
+              size={14 + seededRandom(x, y, levelIndex * 53 + 7) * 12}
               style={{ opacity: 0.55, transform: `rotate(${(seededRandom(x, y, levelIndex * 31 + 3) - 0.5) * 40}deg)` }}
             />
           )}
@@ -1296,7 +1298,7 @@ export default function FishGame() {
 
   return (
     <div
-      className="w-full min-h-screen flex flex-col items-center py-6 px-3 font-sans"
+      className="w-full min-h-screen flex flex-col items-center py-6 px-2 font-sans"
       style={{ backgroundColor: theme.pageBg }}
       onContextMenu={(e) => e.preventDefault()}
     >
@@ -1399,7 +1401,7 @@ export default function FishGame() {
             >
               <div style={{ transform: `scale(${growScale})`, transition: "transform 250ms ease" }}>
                 <div style={celebrating ? { animation: "celebrateSpin 0.7s ease-in-out" } : { transform: FACING_TRANSFORM[facing], transition: "transform 150ms ease" }}>
-                  <CreatureIcon />
+                  <CreatureIcon size={PLAYER_ICON_SIZE} />
                 </div>
               </div>
             </div>
